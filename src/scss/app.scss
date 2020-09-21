@@ -1,0 +1,138 @@
+@import './libs/reset.scss';
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EBEBEB;
+}
+
+.todo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 530px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.01), 0px 25px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ebebeb;
+
+    &__header {
+        background-color: #db4c3f;
+        padding: 20px;
+
+        h4 {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 500;
+        }
+    }
+
+    &__add-field {
+        display: flex;
+        border-bottom: 1px solid #f4f4f4;
+
+        input {
+            border: none;
+            flex-grow: 1;
+            font-size: 18px;
+            padding: 20px;
+
+            &::-webkit-input-placeholder {color: #bfbfbf};
+            &:-ms-input-placeholder {color: #bfbfbf};
+            &::-ms-input-placeholder {color: #bfbfbf};
+            &::placeholder {color: #bfbfbf};
+        }
+
+        &-button {
+            border: none;
+            background-color: transparent;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: #fbfbfb;
+                svg {
+                    path {
+                        stroke: #202020;
+                    }
+                }
+            }
+        }
+    }
+
+    &__list {
+
+        &-item {
+            $self: &;
+            display: flex;
+            padding: 30px 20px;
+            border: 1px solid #f4f4f4;
+            align-items: center;
+
+            &--completed {
+                text-decoration: line-through;
+                #{$self}-check, #{$self}-check:hover {
+                    background-color: #db4c3f;
+
+                    svg {
+                        display: block;
+                    }
+                }
+            }
+
+            &-check {
+                border: 2px solid #db4c3f;
+                border-radius: 30px;
+                height: 24px;
+                width: 24px;
+                margin-right: 15px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: #f8e0de;
+                }
+
+                svg {
+                    display: none;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            &-remove {
+                margin-right: 3px;
+                cursor: pointer;
+
+                svg {
+                    transform: rotate(45deg);
+                }
+
+                &:hover {
+
+                    svg {
+                        path {
+                            stroke: #202020;
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-weight: 18px;
+                flex-grow: 1;
+            }
+        }
+    }
+}
